@@ -1,0 +1,38 @@
+---
+layout: base.njk
+---
+
+<div class="author-card">
+    <div class="author-image">
+        <img src="{{ author.image }}" alt="{{ author.name }}">
+    </div>
+    <div class="author-info">
+        <h2>{{ author.name }}</h2>
+        <p>{{ author.bio }}</p>
+        <div class="author-social">
+            <span><i class="icon-comment"></i> {{ author.comments }}</span>
+            <span><i class="icon-rocket"></i> {{ author.rocket }}</span>
+            <span><i class="icon-eye"></i> {{ author.views }} engagements</span>
+        </div>
+    </div>
+</div>
+
+<article class="post-content">
+    <h1>{{ title }}</h1>
+    
+    <div class="featured-image">
+        <img src="{{ featuredImage }}" alt="{{ title }}">
+    </div>
+    
+    <div class="post-body">
+        {{ content | safe }}
+    </div>
+    
+    <div class="post-meta">
+        <div class="author-small">
+            <img src="{{ author.image }}" alt="{{ author.name }}">
+            <span>{{ author.name }}</span>
+        </div>
+        <span class="post-date">{{ date | date("MMMM DD, YYYY") }}</span>
+    </div>
+</article>

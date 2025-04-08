@@ -1,0 +1,42 @@
+---
+layout: base.njk
+title: Home
+---
+
+<div class="author-card">
+    <div class="author-image">
+        <img src="/assets/images/cuteimg.webp" alt="Lê Thanh Trúc">
+    </div>
+    <div class="author-info">
+        <h2>Lê Thanh Trúc</h2>
+        <p>Tristique volutpat pulvinar vel massa, pellentesque egestas. Est viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.</p>
+        <div class="author-social">
+            <span><i class="icon-comment"></i> commentaries</span>
+            <span><i class="icon-rocket"></i> Rocketbeat</span>
+            <span><i class="icon-eye"></i> 72 engagements</span>
+        </div>
+    </div>
+</div>
+
+<h2>Các bài posts của tôi</h2>
+
+<div class="posts-grid">
+{% for post in collections.post | reverse %}
+    <div class="post-card">
+        <a href="{{ post.url }}">
+            <img src="{{ post.data.featuredImage }}" alt="{{ post.data.title }}">
+        </a>
+        <div class="post-card-content">
+            <span class="post-category">{{ post.data.category }}</span>
+            <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+            <div class="post-meta">
+                <div class="author-small">
+                    <img src="{{ post.data.author.image }}" alt="{{ post.data.author.name }}">
+                    <span>{{ post.data.author.name }}</span>
+                </div>
+                <span class="post-date">{{ post.date | date("MMMM DD, YYYY") }}</span>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
